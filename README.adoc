@@ -1,0 +1,21 @@
+---
+permalink: /guide/using-kAppNav/
+---
+:page-layout: guide
+:page-duration: 25 minutes
+:page-releasedate: 2019-10-18
+:page-description: Learn how to organize cloud native microservices into a single view
+:page-tags: ['Collections']
+:page-guide-category: collections
+:imagesdir: /assets
+= Using Kubernetes Application Navigator (kAppNav)
+
+// Copyright 2019 IBM Corporation and others
+
+== What you will learn
+
+You will install a Node.js application to represent a cloud native microservice.  Then, you will define an application to provide a single view of the deployed Kubernetes resources of your microservice. 
+
+== Prerequisites
+
+. You must have either https://kabanero.io/operations/kabanero-foundation-install/ [Kabanero Foundation], which includes kAppNav, installed or https://github.com/kappnav/README [kAppNav] installed separately on an OKD or Minishift cluster.
