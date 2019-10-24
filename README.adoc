@@ -18,7 +18,7 @@ You will install a Node.js application to represent a cloud native microservice.
 
 == Before you begin
 
-It is important to understand that Kubernetes is a highly flexibile system. Many names, labels and resources are defined and used by convention. Depending on the distribution of Kubernetes you use some names, labels and resources may be different. kAppNav relies on matching these names, labels and resources in order to define and display your application. Because of this, you need to understand how your application is deployed, using what resources, and how it is named and labeled. The steps laid out in these instructions will work for any Kubernetes environment, but the exact names, labels and resource kinds may vary based on your application and environment.
+It is important to understand that Kubernetes is a highly flexible system. Many names, labels, and resources are defined and used by convention. Depending on the development tools you use, some names, labels, and resources can vary. kAppNav relies on matching these names, labels, and resources to define and display your application. Because of this condition, you need to understand how your application is deployed, what resources are used, and how it is named and labeled. The steps that are described in these instructions work for any Kubernetes environment, but the exact names, labels, and resource kinds can vary based on your application and environment.
 
 == Prerequisites
 
@@ -90,7 +90,7 @@ image::/img/guide/guide-using-kappNav-namespace.png[link="/img/guide/guide-using
 On the **Selectors** tab, specify the application label and name.
 
 * The **Label** credential name is a label name this provided by convention.
-* The **Value** credential is the application name provided when the application was created.
+* The **Value** credential is the application name provided when the application was created. 
 
 image::/img/guide/guide-using-kappNav-app-label.png[link="/img/guide/guide-using-kappNav-app-label.png" alt="Enter details in the kAppNav user interface for application label and value"]
 
