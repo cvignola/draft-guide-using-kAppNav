@@ -16,6 +16,10 @@ permalink: /guide/using-kAppNav/
 
 You will install a Node.js application to represent a cloud native microservice.  Then, you will define an application to provide a single view of the deployed Kubernetes resources of your microservice.
 
+== Before you begin
+
+It is important to understand that Kubernetes is a highly flexibile system. Many names, labels and resources are defined and used by convention. Depending on the distribution of Kubernetes you use some names, labels and resources may be different. kAppNav relies on matching these names, labels and resources in order to define and display your application. Because of this, you need to understand how your application is deployed, using what resources, and how it is named and labeled. The steps laid out in these instructions will work for any Kubernetes environment, but the exact names, labels and resource kinds may vary based on your application and environment.
+
 == Prerequisites
 
 * You must have either https://kabanero.io/operations/kabanero-foundation-install/[Kabanero Foundation], which includes kAppNav, installed or https://github.com/kappnav/README[kAppNav] installed separately on an OKD or Minishift cluster.
@@ -26,9 +30,11 @@ Log into your OpenShift console
 
 From the Service Catalog, create a new Node.js project
 
-Select a Node.js project from the catalog or search for it.
+Select a Node.js project from the catalog ... 
 
 image::/img/guide/guide-using-kappNav-okd-service-catalog.png[link="/img/guide/guide-using-kappNav-okd-service-catalog.png" alt="Select a Node.js project from the catalog"]
+
+or search for it.
 
 image::/img/guide/guide-using-kappNav-okd-service-catalog-search.png[link="/img/guide/guide-using-kappNav-okd-service-catalog-search.png" alt="Search the catalog for a Node.js project"]
 
@@ -37,6 +43,13 @@ Follow the project creation dialog box to create a new project.
 image::/img/guide/guide-using-kappNav-node.js-new-project.png[link="/img/guide/guide-using-kappNav-node.js-new-project.png" alt="Create a new project dialog box"]
 
 Create the Node.js application.
+
+- Add to Project: Create Project
+- Project Name: 'my-node-project' (this will be the application's namespace)
+- Project Display Name: 'My Node Project'
+- Application Name: 'my-node-app'
+- Git Repository: Click 'Try Sample Repository'
+- Click Create
 
 image::/img/guide/guide-using-kappNav-node.js-project-configure.png[link="/img/guide/guide-using-kappNav-node.js-project-configure.png" alt="Configure the new node.js project in the dialog box"]
 
@@ -59,6 +72,8 @@ image::/img/guide/guide-using-kappNav-mynodeproject-application-deployed.png[lin
 == Add the application in kAppNav
 To display the application in kAppNav, you can create an Application Custom Resource to group the Kubernetes resources that belong to the deployed microservice.
 
+Find the kAppNav 'kappnav-ui-service' route and click it to open up the kAppNav main page.
+
 image::/img/guide/guide-using-kappNav-ui.png[link="/img/guide/guide-using-kappNav-ui.png" alt="Page displays user interface for create custom resource"]
 
 Click the **Create Application** button.
@@ -68,7 +83,7 @@ image::/img/guide/guide-using-kappNav-create-application.png[link="/img/guide/gu
 On the General tab, specify the application name and namespace.
 
 * The **Name** value can be anything and does not need to match the name of the application.
-* The **Namespace** value must be the namespace that the application belongs to.
+* The **Namespace** value must be the same namespace as the projects that make up the application.
 
 image::/img/guide/guide-using-kappNav-namespace.png[link="/img/guide/guide-using-kappNav-namespace.png" alt="Enter details in the kAppNav user interface for application name and namespace"]
 
@@ -86,9 +101,9 @@ image::/img/guide/guide-using-kappNav-resource-kinds.png[link="/img/guide/guide-
 Click create.
 
 * The application is created. The status may display as **Unknown** for a few moments until it changes to **Normal**.
-* The **Unknown** status occurs while kAppNav is interrogating the resources to determine the overall status.
+The **Unknown** status occurs while kAppNav is interrogating the resources to determine the overall status.
 
-image::/img/guide/guide-using-kappNav-created-applications-view.png[link="/img/guide/guide-using-kappNav-created-applications-view.png" alt="Page displays the view of a successfully created application"]
+image::/img/guide/guide-using-kappNav-created-application-view.png[link="/img/guide/guide-using-kappNav-created-application-view.png" alt="Page displays the view of a successfully created application"]
 
 Navigate into the **my-node-app** application view to see the details and components that define the application.
 
@@ -116,7 +131,7 @@ To add an application to kAppNav, it is important to understand how the followin
 
 image::/img/guide/guide-using-kappNav-application-custom-resource.png[link="/img/guide/guide-using-kappNav-application-custom-resource.png" alt="Example of application custom resource"]
 
-=== How this works:
+**How this works:**
 
 * `metadata: name` - This is the display name of your application in kAppNav as well as the name of the application resource. It must be unique within the namespace.
 * `metadata: namespace` - This must the namespace of your application.
